@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подача заявления на аттестацию</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body class="container-fluid">
+    <style>
+        .container-person {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .file {
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .delete-item {
+            font-size: 24px;
+            line-height: 20px;
+
+            position: absolute;
+            cursor: pointer;
+
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+        }
+
+        .link {
+            position: relative;
+
+            padding-right: 20px;
+        }
+
+        .load-status.succsess{
+            color: #28a745;
+        }
+
+        .load-status.failure{
+            color: red;
+        }
+
+        .load-btn {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+        }
+    </style>
+    <div class="mb-5 p-3 d-flex justify-content-center align-items-center">
+        <h1 class="mr-5">Функционал подачи заявления</h1>
+        <a class="btn btn-primary" href="applicant.html">Назад</a>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center align-items-stretch mb-5">
+        <div class="container-person col-12 col-xl-5 d-flex flex-column p-3 pt-5 pb-5">
+            <h3 class="text-center mb-3">Фимилия Имя Отчество</h3>
+            <h5 class="text-center">ИНН: 684165165165165</h5>
+            <h5 class="text-center">СНИЛС: 684165165165165</h5>
+        </div>
+        <div class="pt-3 pb-3 col-12 col-xl-7">
+            <div class="col-10 m-auto">
+                <h4 class="mb-3">Подача заявления</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="currentPosition">Ваша текущая педогагическая должность:</label>
+                        <select class="form-control" id="currentPosition" name="currentPosition">
+                            <option disabled selected>Выбрать должность</option>
+                            <option>Воспитатель</option>
+                            <option>Инструктор-методист</option>
+                            <option>Инструктор по труду</option>
+                            <option>Инструктор по физической культуре</option>
+                            <option>Концертмейстер</option>
+                            <option>Педагог-психолог</option>
+                            <option>Мастер производственного обучения</option>
+                            <option>Методист</option>
+                            <option>Музыкальный руководитель</option>
+                            <option>Педагог дополнительного образования</option>
+                            <option>Педагог-библиотекарь</option>
+                            <option>Педагог-организатор</option>
+                            <option>Преподаватель</option>
+                            <option>Преподаватель-организатор основ безопасности жизнедеятельности</option>
+                            <option>Руководитель физического воспитания</option>
+                            <option>Социальный педагог</option>
+                            <option>Старший вожатый</option>
+                            <option>Старший воспитатель</option>
+                            <option>Старший инструктор-методист</option>
+                            <option>Старший методист</option>
+                            <option>Старший педагог дополнительного образования</option>
+                            <option>Старший тренер-преподаватель</option>
+                            <option>Тренер-преподаватель</option>
+                            <option>Тьютор</option>
+                            <option>Учитель - При выборе должности «учитель», указывается его профиль (как пример - учитель математики)</option>
+                            <option>Учитель-дефектолог</option>
+                            <option>Учитель-логопед</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="futurePosition">Должность на которую будете аттестоваться:</label>
+                        <select class="form-control" id="futurePosition" name="futurePosition">
+                            <option disabled selected>Выбрать должность</option>
+                            <option>Воспитатель</option>
+                            <option>Инструктор-методист</option>
+                            <option>Инструктор по труду</option>
+                            <option>Инструктор по физической культуре</option>
+                            <option>Концертмейстер</option>
+                            <option>Педагог-психолог</option>
+                            <option>Мастер производственного обучения</option>
+                            <option>Методист</option>
+                            <option>Музыкальный руководитель</option>
+                            <option>Педагог дополнительного образования</option>
+                            <option>Педагог-библиотекарь</option>
+                            <option>Педагог-организатор</option>
+                            <option>Преподаватель</option>
+                            <option>Преподаватель-организатор основ безопасности жизнедеятельности</option>
+                            <option>Руководитель физического воспитания</option>
+                            <option>Социальный педагог</option>
+                            <option>Старший вожатый</option>
+                            <option>Старший воспитатель</option>
+                            <option>Старший инструктор-методист</option>
+                            <option>Старший методист</option>
+                            <option>Старший педагог дополнительного образования</option>
+                            <option>Старший тренер-преподаватель</option>
+                            <option>Тренер-преподаватель</option>
+                            <option>Тьютор</option>
+                            <option>Учитель - При выборе должности «учитель», указывается его профиль (как пример - учитель математики)</option>
+                            <option>Учитель-дефектолог</option>
+                            <option>Учитель-логопед</option>
+                        </select>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label for="currentCategory">Выберите вашу категорию:</label>
+                        <select class="form-control" id="currentCategory" name="currentCategory">
+                            <option disabled selected>Выбрать категорию</option>
+                            <option>Нет категории</option>
+                            <option>Первая категория</option>
+                            <option>Высшая категория</option>
+                        </select>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label for="expiryDate">Укажите срок действия имеющейся категории:</label>
+                        <input type="date" class="form-control" id="expiryDate" name="expiryDate">
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label for="certificate">Укажите номер и дату приказа МИоН РБ предыдущей аттестации:</label>
+                        <div class="form-row m-0">
+                            <input type="text" class="form-control col mr-4" id="certificate" name="certificate">
+                            <input type="date" class="form-control col" id="certificateDate" name="certificateDate">
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label for="generalExperience">Укажите свой общий педадагогический стаж работы (полное кол-во лет):</label>
+                        <input type="number" class="form-control" id="generalExperience" name="generalExperience">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentPositionExperience">Укажите свой педадагогический стаж работы по специальности в данной должности (полное кол-во лет):</label>
+                        <input type="number" class="form-control" id="currentPositionExperience" name="currentPositionExperience">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentInstitutionExperience">Укажите свой педадагогический стаж работы в данном ОО (полное кол-во лет):</label>
+                        <input type="number" class="form-control" id="currentInstitutionExperience" name="currentInstitutionExperience">
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label for="futureCategory">Выберите категорию по которой планируете аттестовываться:</label>
+                        <select class="form-control" id="futureCategory" name="futureCategory">
+                            <option disabled selected>Выбрать категорию</option>
+                            <option>Нет категории</option>
+                            <option>Первая категория</option>
+                            <option>Высшая категория</option>
+                        </select>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="procedureCheck" id="procedureCheck">
+                        <label class="form-check-label" for="procedureCheck">
+                            <a href="#">С порядком</a> проведения аттестации ознакомлен(а)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="privacyCheck" id="privacyCheck">
+                        <label class="form-check-label" for="privacyCheck">
+                            <a href="#">Соглашение</a> об обработке персональных данных принимаю
+                        </label>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label>Дополнительные сведения к заявлению:</label>
+                        <br>
+                        <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#download">Загрузить</button>
+                        <label class="load-status failure m-0">Вы еще ничего не загрузили</label>
+                        <small class="form-text text-muted">Количество файлов - не более 10 (можно прикреплять файлы форматов *.doc, *.docx, *.ppt, *.pptx, *.txt, *.rtf, *.xls, *.xlsx,*.pdf, *.jpg размером, не превышающим 10 мегабайт)</small>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4">Подать заполненное заявление</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="download" tabindex="-1" aria-labelledby="downloadLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="downloadLabel">Дополнительные сведения к заявлению</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>Загруженные документы:</label>
+                        <div class="addfiles"></div>
+                        <div class="form-group mt-4">
+                            <div class="custom-file">
+                                <button class="btn load-btn addfile-btn" type="button">Добавить файл</button>
+                                <input type="file" id="addfile-input" class="d-none" multiple>
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <label>Прикрепленные ссылки:</label>
+                        <div class="addlinks"></div>
+                        <div class="form-group mt-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="addlink-input" placeholder="Вставьте ссылку">
+                                <div class="input-group-append">
+                                    <button class="btn load-btn addlink-btn" type="button">Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="saveDocs btn btn-primary">Сохранить изменения</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        var fileArr = [];
+        var linkArr = [];
+
+        $('.addfile-btn').on('click', function () {
+            $('#addfile-input').click();
+        });
+
+        $('#addfile-input').on('change', function () {
+            var files = $("#addfile-input").get(0).files;
+            var wrongFiles = '';
+
+            if ((fileArr.length + files.length) > 10) {
+                alert('Вы не можете прикрепить более 10 документов к заявлению');
+                return;
+            }
+
+            for (var i = 0, numFiles = files.length; i < numFiles; i++) {
+                var file = files[i];
+
+                if (file.size > 10485760) {
+                    wrongFiles += file.name + " ";
+                    console.log(wrongFiles);
+                    continue;
+                }
+
+                fileArr.push(file);
+            }
+
+            if (wrongFiles) {
+                alert('Не удалось загрузить файлы, весом более 10 МБ: \n' + wrongFiles);
+            }
+
+            updateFiles();
+        });
+
+        function updateFiles() {
+            if (fileArr.length === 0) {
+                $('.addfiles').html('');
+                $('.addfiles').append('<div class="text-center m-3">Вы еще не добавили ни одного документа</div>');
+            } else {
+                $('.addfiles').html('');
+
+                fileArr.forEach(function (item, i) {
+                    $('.addfiles').append('<div class="form-group file"><label class="d-flex align-items-center"><i class="fa fa-file" aria-hidden="true"></i><p class="m-0 ml-2">' + item.name + '</p></label><span class="delete-item file-item">&times;</span></div>');
+                });
+                
+                $('.delete-item.file-item').on('click', function () {
+                    fileArr.splice($(this).closest('div').index(), 1);
+                    updateFiles();
+                });
+            }
+        }
+
+        updateFiles();
+
+        $('.addlink-btn').on('click', function () {
+            if ($('#addlink-input').val() === "") {
+                $('#addlink-input').css('border-color', 'red');
+
+                if ($('.message')) $('.message').remove();
+                
+                var message = $('<p class="message"></p>');
+                message.html('Введите ссылку в данное поле');
+                message.css('color', 'red');
+
+                $('#addlink-input').closest('div').after(message);
+            } else {
+                $('#addlink-input').css('border-color', '');
+                $('.message').remove();
+
+                linkArr.push($('#addlink-input').val());
+                updateLinks();
+                $('#addlink-input').val('');
+            }
+        });
+
+        function updateLinks() {
+            if (linkArr.length === 0) {
+                $('.addlinks').html('');
+                $('.addlinks').append('<div class="text-center m-3">Вы еще не добавили ни одной ссылки</div>');
+            } else {
+                $('.addlinks').html('');
+
+                linkArr.forEach(function (item, i) {
+                    if (item.length > 30) {
+                        item = item.slice(0, 29) + '...';
+                    }
+
+                    $('.addlinks').append('<div class="form-group link"><label class="d-flex align-items-center"><i class="fa fa-external-link" aria-hidden="true"></i><p class="m-0 ml-2">' + item + '</p></label><span class="delete-item link-item">&times;</span></div>');
+                });
+
+                $('.delete-item.link-item').on('click', function () {
+                    linkArr.splice($(this).closest('div').index(), 1);
+                    updateLinks();
+                });
+            }
+        }
+        
+        updateLinks();
+
+        $('.saveDocs').on('click', function() {
+            if ((fileArr.length + linkArr.length) > 0) {
+                $('.load-status').html('Загружено ' + fileArr.length + ' файлов и ' + linkArr.length + ' ссылок');
+                $('.load-status').removeClass('failure').addClass('succsess');
+            } else {
+                $('.load-status').html('Вы еще ничего не загрузили');
+                $('.load-status').removeClass('succsess').addClass('failure');
+            }
+
+            $('.closeBtn').click();
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
