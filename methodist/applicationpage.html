@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аттестация</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <!-- <script src="/node_modules/jquery/dist/jquery.js"></script> -->
+    <script src="/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #fafafa;;
+        }
+
+        .bg-white {
+            background-color: #fff;
+            border-radius: 20px;
+            border: 1px solid #dee2e6;
+        }
+
+        .prev, .next {
+            font-size: 30px;
+            color: #444;
+
+            cursor: pointer;
+        }
+
+        .page-header {
+            line-height: normal;
+        }
+
+        .border-section {
+            border: 1px solid #444;
+            border-radius: 10px;
+        }
+
+        .file {
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .file label {
+            cursor: pointer;
+        }
+
+        .download {
+            position: absolute;
+            cursor: pointer;
+
+            top: 50%;
+            right: 20px;
+            transform: translate(0, -50%);
+        }
+    </style>
+    <div class="mb-3 p-3 d-flex justify-content-center align-items-center">
+        <h1 class="mr-5">Функционал по рассмотрению заявления</h1>
+        <a class="btn btn-primary" href="methodist.html">Назад</a>
+    </div>
+    
+    <div class="d-flex justify-content-center mb-4">
+        <div class="prev col-3 text-right">&lt;</div>
+        <div class="col-6 d-flex flex-column justify-content-center">
+            <h3 class="page-header text-center font-weight-light m-0">Страница заявителя на аттестацию</h3>
+            <p class="m-0 text-center font-weight-light">1 заявление из 5</p>
+        </div>
+        <div class="next col-3 text-left">&gt;</div>
+    </div>
+    <div class="row m-0 pb-5">
+        <div class="col-12 col-xl-4">
+            <div class="d-flex flex-column p-3">
+                <img class="media-object rounded-circle mx-auto mb-3" width="200" height="200" src="/assets/persone.gif">
+                <h3 class="text-center font-weight-light mb-3">Фимилия Имя Отчество</h3>
+                <p class="text-center m-0">ID: <b>6843245</b></p>
+                <p class="text-center m-0">Логин: <b>ФамилияИО</b></p>
+                <p class="text-center m-0">Дата рождения: 20.11.1995</p>
+                <p class="text-center m-0">ИНН: 684165165165165</p>
+                <p class="text-center m-0">СНИЛС: 684165165165165</p>
+            </div>
+        </div>
+        <div class="col-12 col-xl-8 bg-white py-5">
+            <div class="col-10 m-auto">
+                <h4 class="mb-3">Заявление:</h4>
+                <div class="d-flex flex-wrap">
+                    <p class="m-0 mb-2 col-12">Образовательная организация: <b>МАОУ СОШ №7</b></p>
+                    <p class="m-0 col-6">Текущая должность: <b>Учитель</b></p>
+                    <p class="m-0 col-6">Текущая категория: <b>Нет</b></p>
+                    <p class="m-0 col-6">Планирует аттестоваться на: <b>Первая</b></p>
+                    <p class="m-0 col-6">Общий педагогический стаж: <b>3</b></p>
+                    <p class="m-0 col-6">Педагогический стаж по специальности в данной должности: <b>1</b></p>
+                    <p class="m-0 col-6">Педагогический стаж в данном ОО: <b>1</b></p>
+                    <p class="m-0 mt-2 col-12">Срок действия: <b>28.10.2021</b></p>
+                    <p class="m-0 mt-2 col-12">№ приказа МОиН РБ предыдущей аттестации: <b>1546AA/12</b> от <b>28.10.2021</b></p>
+                </div>
+                <div class="mt-5">
+                    <h5 class="mb-3">Прилагаемые документы к заявлению:</h5>
+                    <div class="border-section p-3 d-flex flex-wrap justify-content-start">
+                        <div class="file col-6 my-2 px-5">
+                            <label class="d-flex align-items-center m-0">
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Файл1.psd</p>
+                            </label>
+                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        </div>
+                        <div class="file col-6 my-2 px-5">
+                            <label class="d-flex align-items-center m-0">
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Файл2.psd</p>
+                            </label>
+                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        </div>
+                        <div class="file col-6 my-2 px-5">
+                            <label class="d-flex align-items-center m-0">
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Файл3.psd</p>
+                            </label>
+                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        </div>
+                        <div class="file col-6 my-2 px-5">
+                            <label class="d-flex align-items-center m-0">
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Файл4.psd</p>
+                            </label>
+                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        </div>
+                        <div class="file col-6 my-2 px-5">
+                            <label class="d-flex align-items-center m-0">
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Файл5.psd</p>
+                            </label>
+                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h5 class="m-0 page-header">Запросы:</h5>
+                        <div class="btn btn-outline-primary">Создать запрос</div>
+                    </div>
+                    <div class="border-section p-3 d-flex flex-wrap justify-content-start">
+                        <div class="file col-4 my-3">
+                            <label class="d-flex align-items-center justify-content-center m-0">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Запрос1</p>
+                            </label>
+                        </div>
+                        <div class="file col-4 my-3">
+                            <label class="d-flex align-items-center justify-content-center m-0">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Запрос2</p>
+                            </label>
+                        </div>
+                        <div class="file col-4 my-3">
+                            <label class="d-flex align-items-center justify-content-center m-0">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Запрос3</p>
+                            </label>
+                        </div>
+                        <div class="file col-4 my-3">
+                            <label class="d-flex align-items-center justify-content-center m-0">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <p class="m-0 ml-2">Запрос4</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="mt-3" for="analysis">
+                    <input type="checkbox" id="analysis" name="analysis">
+                    Анализ заявления закончен
+                </label>
+                <br>
+                <div class="btn btn-success">Принять заявление</div>
+                <div class="btn btn-danger">Отклонить заявление</div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>

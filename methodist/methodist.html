@@ -7,26 +7,145 @@
     <title>Аттестация</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <!-- <script src="/node_modules/jquery/dist/jquery.js"></script> -->
+    <script src="/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <style>
-        .container-methodist {
-            background-color: rgba(255, 0, 0, 0.1);
+        body {
+            background-color: #fafafa;;
+        }
+
+        .bg-white {
+            background-color: #fff;
+            border-radius: 20px;
+            border: 1px solid #dee2e6;
+        }
+        
+        thead th {
+            border-top: none !important;
+        }
+
+        tbody tr:hover {
+            background-color: #dee2e6 !important;
+            cursor: pointer;
+        }
+        
+        .search-btn {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+        }
+
+        .card-body {
+            min-height: 500px;
         }
     </style>
-    <div class="container-methodist mb-3 p-3 d-flex justify-content-center align-items-center">
+    <div class="mb-3 p-3 d-flex justify-content-center align-items-center">
         <h1 class="mr-5">Функционал методиста</h1>
-        <a class="btn btn-primary" href="index.html">Назад</a>
+        <a class="btn btn-primary" href="../index.html">Назад</a>
     </div>
-
+    <div>
+        <h3 class="text-center font-weight-light mb-4">Сводная информация по Отдел образования Х района РБ</h3>
+        <div class="bg-white py-5 row">
+            <div class="px-5 col-6">
+                <label for="type">Статус заявления:</label>
+                <select class="form-control" id="type">
+                        <option data-type="all" selected>Все</option>
+                        <option data-type="submitted">Поданные</option>
+                        <option data-type="adjustment">На корректировке</option>
+                        <option data-type="taken">Принятые</option>
+                        <option data-type="decline">Отклонены</option>
+                        <option data-type="portfolioLoaded">Загружено портфолио</option>
+                        <option data-type="portfolioAdjustment">Корректировка портфолио</option>
+                        <option data-type="expertise">Экспертиза</option>
+                        <option data-type="commission" >Комиссия</option>
+                        <option data-type="order">Приказ МоиН</option>
+                </select>
+            </div>
+            <div class="px-5 col-6">
+                <label for="search-input">Поиск заявления:</label>
+                <div class="input-group m-auto">
+                    <input type="text" class="form-control" id="search-input" placeholder="Введите ФИО, ОО или РОО">
+                    <div class="input-group-append">
+                        <button class="btn search-btn" type="button">Поиск</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body overflow-auto col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col">ОО</th>
+                            <th scope="col">ФИО</th>
+                            <th scope="col">Текущая должность</th>
+                            <th scope="col">Текущая категория</th>
+                            <th scope="col">Срок действия категории</th>
+                            <th scope="col">Планируемая категория</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a class="d-none page" href="applicationpage.html">Link</a>
 
     <script>
-        
+        $(document).ready(function () {
+
+            function numbering() {
+                $('table').find('[scope="row"]').each(function (i, item) {
+                    $(item).html(i + 1);
+                });
+            }
+
+            function goToPage() {
+                $('.pagelink').on('click', function () {
+                    $('.page')[0].click();
+                });
+            }
+
+            function getApplications () {
+                fetch('list.json')
+                    .then(function(data) {
+                        return data.json();
+                    })
+                    .then(function(res) {
+                        if ($('#type option:selected').attr('data-type') === 'all') {
+                            res.application.forEach(function(item) {
+                                $('.card-body tbody').append('<tr class="pagelink"><th scope="row"></th><td>' + item.department +'</td><td>' + item.fullName +'</td><td>' + item.currentPosition +'</td><td>' + item.currentCategory +'</td><td>' + item.expiration +'</td><td>' + item.futureCategory +'</td></tr>');
+                            });
+                        } else {
+                            for (let i = 0; i < res.application.length; i++) {
+                                if ($('#type option:selected').attr('data-type') === res.application[i].status) {
+
+                                    $('.card-body tbody').append('<tr class="pagelink"><th scope="row"></th><td>' + res.application[i].department +'</td><td>' + res.application[i].fullName +'</td><td>' + res.application[i].currentPosition +'</td><td>' + res.application[i].currentCategory +'</td><td>' + res.application[i].expiration +'</td><td>' + res.application[i].futureCategory +'</td></tr>');
+                                }
+                            }
+                        }
+
+                        numbering();
+                        goToPage();
+                    });
+            }
+
+            $('#type').on('change', function (e) {
+                    e.preventDefault();
+                    
+                    $('.card-body tbody').html('');
+
+                    getApplications();
+                });
+
+            getApplications();
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="ss/methodist/index.js"></script>
 </body>
 </html>

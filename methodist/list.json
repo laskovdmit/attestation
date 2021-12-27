@@ -1,0 +1,157 @@
+{
+    "application": [
+      {
+        "status": "submitted",
+        "department": "МАОУ СОШ №001",
+        "fullName": "Фамилия1 Имя1 Отчество1",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "adjustment",
+        "department": "МАОУ СОШ №002",
+        "fullName": "Фамилия2 Имя2 Отчество2",
+        "currentPosition": "Учитель",
+        "currentCategory": "Первая",
+        "expiration": "15.10.2021",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "taken",
+        "department": "МАОУ СОШ №003",
+        "fullName": "Фамилия3 Имя3 Отчество3",
+        "currentPosition": "Учитель",
+        "currentCategory": "Первая",
+        "expiration": "09.09.2022",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "decline",
+        "department": "МАОУ СОШ №004",
+        "fullName": "Фамилия4 Имя4 Отчество4",
+        "currentPosition": "Учитель",
+        "currentCategory": "Высшая",
+        "expiration": "11.11.2021",
+        "futureCategory": "Высшая"
+      },
+      {
+        "status": "portfolioLoaded",
+        "department": "МАОУ СОШ №005",
+        "fullName": "Фамилия5 Имя5 Отчество5",
+        "currentPosition": "Методист",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "portfolioAdjustment",
+        "department": "МАОУ СОШ №006",
+        "fullName": "Фамилия6 Имя6 Отчество6",
+        "currentPosition": "Педагог-психолог",
+        "currentCategory": "Высшая",
+        "expiration": "09.09.2022",
+        "futureCategory": "Высшая"
+      },
+      {
+        "status": "expertise",
+        "department": "МАОУ СОШ №007",
+        "fullName": "Фамилия7 Имя7 Отчество7",
+        "currentPosition": "Социальный педагог",
+        "currentCategory": "Первая",
+        "expiration": "20.09.2022",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "commission",
+        "department": "МАОУ СОШ №008",
+        "fullName": "Фамилия8 Имя8 Отчество8",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "order",
+        "department": "МАОУ СОШ №009",
+        "fullName": "Фамилия9 Имя9 Отчество9",
+        "currentPosition": "Учитель-логопед",
+        "currentCategory": "Высшая",
+        "expiration": "09.09.2022",
+        "futureCategory": "Высшая"
+      },
+      {
+        "status": "submitted",
+        "department": "МАОУ СОШ №011",
+        "fullName": "Фамилия11 Имя11 Отчество11",
+        "currentPosition": "Методист",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "order",
+        "department": "МАОУ СОШ №012",
+        "fullName": "Фамилия12 Имя12 Отчество12",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "submitted",
+        "department": "МАОУ СОШ №013",
+        "fullName": "Фамилия13 Имя13 Отчество13",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "portfolioLoaded",
+        "department": "МАОУ СОШ №014",
+        "fullName": "Фамилия14 Имя14 Отчество14",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "submitted",
+        "department": "МАОУ СОШ №015",
+        "fullName": "Фамилия15 Имя15 Отчество15",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "taken",
+        "department": "МАОУ СОШ №016",
+        "fullName": "Фамилия16 Имя16 Отчество16",
+        "currentPosition": "Методист",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "submitted",
+        "department": "МАОУ СОШ №017",
+        "fullName": "Фамилия17 Имя17 Отчество17",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      },
+      {
+        "status": "adjustment",
+        "department": "МАОУ СОШ №018",
+        "fullName": "Фамилия18 Имя18 Отчество18",
+        "currentPosition": "Учитель",
+        "currentCategory": "Нет",
+        "expiration": "",
+        "futureCategory": "Первая"
+      }
+    ]
+}
