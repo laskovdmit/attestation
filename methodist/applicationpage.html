@@ -33,7 +33,7 @@
         }
 
         .border-section {
-            border: 1px solid #444;
+            border: 1px solid #dee2e6;
             border-radius: 10px;
         }
 
@@ -53,6 +53,21 @@
             top: 50%;
             right: 20px;
             transform: translate(0, -50%);
+        }
+
+        .load-btn {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        .link label{
+            cursor: pointer;
         }
     </style>
     <div class="mb-3 p-3 d-flex justify-content-center align-items-center">
@@ -94,90 +109,212 @@
                     <p class="m-0 mt-2 col-12">Срок действия: <b>28.10.2021</b></p>
                     <p class="m-0 mt-2 col-12">№ приказа МОиН РБ предыдущей аттестации: <b>1546AA/12</b> от <b>28.10.2021</b></p>
                 </div>
-                <div class="mt-5">
-                    <h5 class="mb-3">Прилагаемые документы к заявлению:</h5>
-                    <div class="border-section p-3 d-flex flex-wrap justify-content-start">
-                        <div class="file col-6 my-2 px-5">
-                            <label class="d-flex align-items-center m-0">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Файл1.psd</p>
-                            </label>
-                            <i class="download fa fa-download" aria-hidden="true"></i>
+                <div class="row mt-5">
+                    <div class="col-md-6 col-12 mb-3">
+                        <h5 class="mb-3">Прилагаемые документы:</h5>
+                        <div class="border-section p-3 d-flex flex-wrap justify-content-start">
+                            <div class="file col-12 my-3 px-5">
+                                <label class="d-flex align-items-center m-0">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Файл1.psd</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="file col-12 my-3 px-5">
+                                <label class="d-flex align-items-center m-0">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Файл2.psd</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="file col-12 my-3 px-5">
+                                <label class="d-flex align-items-center m-0">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Файл3.psd</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="file col-12 my-3 px-5">
+                                <label class="d-flex align-items-center m-0">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Файл4.psd</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="file col-12 my-3 px-5">
+                                <label class="d-flex align-items-center m-0">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Файл5.psd</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
                         </div>
-                        <div class="file col-6 my-2 px-5">
-                            <label class="d-flex align-items-center m-0">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Файл2.psd</p>
-                            </label>
-                            <i class="download fa fa-download" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-6 col-12 mb-3">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="m-0 page-header">Запросы:</h5>
+                            <div id="requests-btn" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#requests">Создать запрос</div>
                         </div>
-                        <div class="file col-6 my-2 px-5">
-                            <label class="d-flex align-items-center m-0">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Файл3.psd</p>
-                            </label>
-                            <i class="download fa fa-download" aria-hidden="true"></i>
-                        </div>
-                        <div class="file col-6 my-2 px-5">
-                            <label class="d-flex align-items-center m-0">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Файл4.psd</p>
-                            </label>
-                            <i class="download fa fa-download" aria-hidden="true"></i>
-                        </div>
-                        <div class="file col-6 my-2 px-5">
-                            <label class="d-flex align-items-center m-0">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Файл5.psd</p>
-                            </label>
-                            <i class="download fa fa-download" aria-hidden="true"></i>
+                        <div class="border-section p-3 d-flex flex-wrap justify-content-start">
+                            <div class="file col-12 my-3">
+                                <label class="d-flex align-items-center justify-content-center m-0">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Запрос1</p>
+                                </label>
+                            </div>
+                            <div class="file col-12 my-3">
+                                <label class="d-flex align-items-center justify-content-center m-0">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Запрос2</p>
+                                </label>
+                            </div>
+                            <div class="file col-12 my-3">
+                                <label class="d-flex align-items-center justify-content-center m-0">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Запрос3</p>
+                                </label>
+                            </div>
+                            <div class="file col-12 my-3">
+                                <label class="d-flex align-items-center justify-content-center m-0">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">Запрос4</p>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-4">
-                    <div class="d-flex justify-content-between mb-3">
-                        <h5 class="m-0 page-header">Запросы:</h5>
-                        <div class="btn btn-outline-primary">Создать запрос</div>
+                <div class="row mt-5 bg-white py-5 px-3">
+                    <div class="col-md-6 col-12 px-3">
+                        <h5>Загруженные документы:</h5>
+                        <div class="addfiles mt-3">
+                            <div class="form-group file">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">1.pdf</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group file">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">2.pdf</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group file">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">3.pdf</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div class="form-group file">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">4.pdf</p>
+                                </label>
+                                <i class="download fa fa-download" aria-hidden="true"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="border-section p-3 d-flex flex-wrap justify-content-start">
-                        <div class="file col-4 my-3">
-                            <label class="d-flex align-items-center justify-content-center m-0">
-                                <i class="fa fa-comment" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Запрос1</p>
-                            </label>
-                        </div>
-                        <div class="file col-4 my-3">
-                            <label class="d-flex align-items-center justify-content-center m-0">
-                                <i class="fa fa-comment" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Запрос2</p>
-                            </label>
-                        </div>
-                        <div class="file col-4 my-3">
-                            <label class="d-flex align-items-center justify-content-center m-0">
-                                <i class="fa fa-comment" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Запрос3</p>
-                            </label>
-                        </div>
-                        <div class="file col-4 my-3">
-                            <label class="d-flex align-items-center justify-content-center m-0">
-                                <i class="fa fa-comment" aria-hidden="true"></i>
-                                <p class="m-0 ml-2">Запрос4</p>
-                            </label>
+                    <hr class="my-4">
+                    <div class="col-md-6 col-12 px-3">
+                        <h5>Прикрепленные ссылки:</h5>
+                        <div class="addlinks mt-3">
+                            <div class="form-group link">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">https://www.site1.com/clie...</p>
+                                </label>
+                            </div>
+                            <div class="form-group link">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">https://www.site2.com/clie...</p>
+                                </label>
+                            </div>
+                            <div class="form-group link">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">https://www.site3.com/clie...</p>
+                                </label>
+                            </div>
+                            <div class="form-group link">
+                                <label class="d-flex align-items-center">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    <p class="m-0 ml-2">https://www.site4.com/clie...</p>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <label class="mt-3" for="analysis">
-                    <input type="checkbox" id="analysis" name="analysis">
+                <label class="mt-3" for="analysisFinished">
+                    <input type="checkbox" id="analysisFinished" name="analysisFinished">
                     Анализ заявления закончен
                 </label>
                 <br>
-                <div class="btn btn-success">Принять заявление</div>
-                <div class="btn btn-danger">Отклонить заявление</div>
+                <button type="button" id="acceptBtn" class="btn btn-success" disabled>Принять заявление</button>
+                <button type="button" id="declineBtn" class="btn btn-danger" data-toggle="modal" data-target="#decline" disabled>Отклонить заявление</button>
             </div>
         </div>
     </div>
-    <script>
+    <div class="modal fade" id="requests" tabindex="-1" aria-labelledby="requestsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="requestsLabel">Создание запроса</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>Введите текст запроса:</label>
+                        <textarea type="text" class="form-control mb-2" id="request-text" placeholder="Текст запроса"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="saveDocs btn btn-primary" data-dismiss="modal">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="decline" tabindex="-1" aria-labelledby="declineLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="declineLabel">Отклонение заявления</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>Опишите причину отклонения со ссылкой на нормативно-правовой документ:</label>
+                        <textarea type="text" class="form-control mb-2" id="decline-text" placeholder="Опишите причину отклонения"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="saveDocs btn btn-primary" data-dismiss="modal">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        $(document).ready(function () {
+            $('[type="checkbox"]').on('change', function() {
+                if ($('#analysisFinished').is(':checked')) {
+                    $('#acceptBtn').prop('disabled', false);
+                    $('#declineBtn').prop('disabled', false);
+                } else {
+                    $('#acceptBtn').prop('disabled', true);
+                    $('#declineBtn').prop('disabled', true);
+                }
+            });
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

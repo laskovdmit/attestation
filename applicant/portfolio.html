@@ -109,123 +109,126 @@
                                 </div>
                             </div>
                         </div>
-                    </div><button class="btn btn-primary m-auto" type="submit">Отправить портфолио</button>
+                    </div>
+                    <button class="btn btn-primary m-auto" type="submit">Отправить портфолио</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        var fileArr = [];
-        var linkArr = [];
+        $(document).ready(function () {
+            var fileArr = [];
+            var linkArr = [];
 
-        $('.addfile-btn').on('click', function () {
-            $('#addfile-input').click();
-        });
+            $('.addfile-btn').on('click', function () {
+                $('#addfile-input').click();
+            });
 
-        $('#addfile-input').on('change', function () {
-            var files = $("#addfile-input").get(0).files;
-            var wrongFiles = '';
+            $('#addfile-input').on('change', function () {
+                var files = $("#addfile-input").get(0).files;
+                var wrongFiles = '';
 
-            if ((fileArr.length + files.length) > 10) {
-                alert('Вы не можете добавить более 10 документов в портфолио');
-                return;
-            }
-
-            for (var i = 0, numFiles = files.length; i < numFiles; i++) {
-                var file = files[i];
-
-                if (file.size > 10485760) {
-                    wrongFiles += file.name + " ";
-                    console.log(wrongFiles);
-                    continue;
+                if ((fileArr.length + files.length) > 10) {
+                    alert('Вы не можете добавить более 10 документов в портфолио');
+                    return;
                 }
 
-                fileArr.push(file);
-            }
+                for (var i = 0, numFiles = files.length; i < numFiles; i++) {
+                    var file = files[i];
 
-            if (wrongFiles) {
-                alert('Не удалось загрузить файлы, весом более 10 МБ: \n' + wrongFiles);
+                    if (file.size > 10485760) {
+                        wrongFiles += file.name + " ";
+                        console.log(wrongFiles);
+                        continue;
+                    }
+
+                    fileArr.push(file);
+                }
+
+                if (wrongFiles) {
+                    alert('Не удалось загрузить файлы, весом более 10 МБ: \n' + wrongFiles);
+                }
+
+                updateFiles();
+            });
+
+            function updateFiles() {
+                if (fileArr.length === 0) {
+                    $('.addfiles').html('');
+                    $('.addfiles').append('<div>Вы еще не добавили ни одного документа</div>');
+                } else {
+                    $('.addfiles').html('');
+
+                    fileArr.forEach(function (item, i) {
+                        $('.addfiles').append('<div class="form-group file"><label class="d-flex align-items-center"><i class="fa fa-file" aria-hidden="true"></i><p class="m-0 ml-2">' + item.name + '</p></label><span class="delete-item file-item">&times;</span></div>');
+                    });
+                    
+                    $('.delete-item.file-item').on('click', function () {
+                        fileArr.splice($(this).closest('div').index(), 1);
+                        updateFiles();
+                    });
+                }
             }
 
             updateFiles();
-        });
 
-        function updateFiles() {
-            if (fileArr.length === 0) {
-                $('.addfiles').html('');
-                $('.addfiles').append('<div>Вы еще не добавили ни одного документа</div>');
-            } else {
-                $('.addfiles').html('');
+            $('.addlink-btn').on('click', function () {
+                if ($('#addlink-input').val() === "") {
+                    $('#addlink-input').css('border-color', 'red');
 
-                fileArr.forEach(function (item, i) {
-                    $('.addfiles').append('<div class="form-group file"><label class="d-flex align-items-center"><i class="fa fa-file" aria-hidden="true"></i><p class="m-0 ml-2">' + item.name + '</p></label><span class="delete-item file-item">&times;</span></div>');
-                });
-                
-                $('.delete-item.file-item').on('click', function () {
-                    fileArr.splice($(this).closest('div').index(), 1);
-                    updateFiles();
-                });
-            }
-        }
+                    if ($('.message')) $('.message').remove();
+                    
+                    var message = $('<p class="message"></p>');
+                    message.html('Введите ссылку в данное поле');
+                    message.css('color', 'red');
 
-        updateFiles();
+                    $('#addlink-input').closest('div').after(message);
+                } else {
+                    $('#addlink-input').css('border-color', '');
+                    $('.message').remove();
 
-        $('.addlink-btn').on('click', function () {
-            if ($('#addlink-input').val() === "") {
-                $('#addlink-input').css('border-color', 'red');
-
-                if ($('.message')) $('.message').remove();
-                
-                var message = $('<p class="message"></p>');
-                message.html('Введите ссылку в данное поле');
-                message.css('color', 'red');
-
-                $('#addlink-input').closest('div').after(message);
-            } else {
-                $('#addlink-input').css('border-color', '');
-                $('.message').remove();
-
-                linkArr.push($('#addlink-input').val());
-                updateLinks();
-                $('#addlink-input').val('');
-            }
-        });
-
-        function updateLinks() {
-            if (linkArr.length === 0) {
-                $('.addlinks').html('');
-                $('.addlinks').append('<div>Вы еще не добавили ни одной ссылки</div>');
-            } else {
-                $('.addlinks').html('');
-
-                linkArr.forEach(function (item, i) {
-                    if (item.length > 30) {
-                        item = item.slice(0, 29) + '...';
-                    }
-
-                    $('.addlinks').append('<div class="form-group link"><label class="d-flex align-items-center"><i class="fa fa-external-link" aria-hidden="true"></i><p class="m-0 ml-2">' + item + '</p></label><span class="delete-item link-item">&times;</span></div>');
-                });
-
-                $('.delete-item.link-item').on('click', function () {
-                    linkArr.splice($(this).closest('div').index(), 1);
+                    linkArr.push($('#addlink-input').val());
                     updateLinks();
-                });
-            }
-        }
-        
-        updateLinks();
+                    $('#addlink-input').val('');
+                }
+            });
 
-        $('.saveDocs').on('click', function() {
-            if ((fileArr.length + linkArr.length) > 0) {
-                $('.load-status').html('Загружено ' + fileArr.length + ' файлов и ' + linkArr.length + ' ссылок');
-                $('.load-status').removeClass('failure').addClass('succsess');
-            } else {
-                $('.load-status').html('Вы еще ничего не загрузили');
-                $('.load-status').removeClass('succsess').addClass('failure');
-            }
+            function updateLinks() {
+                if (linkArr.length === 0) {
+                    $('.addlinks').html('');
+                    $('.addlinks').append('<div>Вы еще не добавили ни одной ссылки</div>');
+                } else {
+                    $('.addlinks').html('');
 
-            $('.closeBtn').click();
+                    linkArr.forEach(function (item, i) {
+                        if (item.length > 30) {
+                            item = item.slice(0, 29) + '...';
+                        }
+
+                        $('.addlinks').append('<div class="form-group link"><label class="d-flex align-items-center"><i class="fa fa-external-link" aria-hidden="true"></i><p class="m-0 ml-2">' + item + '</p></label><span class="delete-item link-item">&times;</span></div>');
+                    });
+
+                    $('.delete-item.link-item').on('click', function () {
+                        linkArr.splice($(this).closest('div').index(), 1);
+                        updateLinks();
+                    });
+                }
+            }
+            
+            updateLinks();
+
+            $('.saveDocs').on('click', function() {
+                if ((fileArr.length + linkArr.length) > 0) {
+                    $('.load-status').html('Загружено ' + fileArr.length + ' файлов и ' + linkArr.length + ' ссылок');
+                    $('.load-status').removeClass('failure').addClass('succsess');
+                } else {
+                    $('.load-status').html('Вы еще ничего не загрузили');
+                    $('.load-status').removeClass('succsess').addClass('failure');
+                }
+
+                $('.closeBtn').click();
+            });
         });
     </script>
 
